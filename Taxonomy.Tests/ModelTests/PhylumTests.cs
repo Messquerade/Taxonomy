@@ -13,6 +13,11 @@ namespace Taxonomy.Tests
       Phylum.ClearAll();
     }
 
+    public PhylumTests()
+    {
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=sami;port=3306;database=taxonomy_test;";
+    }
+
     [TestMethod]
     public void PhylumConstructor_CreatesInstanceOf_Phylum()
     {
@@ -27,5 +32,23 @@ namespace Taxonomy.Tests
       List<Phylum> result = Phylum.GetAll();
       CollectionAssert.AreEqual(newList, result);
     }
+
+    
+  [TestMethod]
+  public void Save_SavesToDatabase_PhylumList()
+  {
+    Phylum newPhylum = new Phylum("test name", "test description", "test origin", "test zone");
+
+    newPhylum.Save();
+    List<Phylum> result = Phylum.GetAll();
+    List<Phylum> testList = new List<Phylum>{newPhylum};
+    
+    CollectionAssert.AreEqual(testList, result);
+  }
+    // [TestMethod]
+    // public void Find_ReturnsPhylumFromDataBase_Phylum()
+    // {
+
+    // }
   }
 }

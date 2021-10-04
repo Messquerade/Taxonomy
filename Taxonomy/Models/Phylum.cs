@@ -86,5 +86,36 @@ namespace Taxonomy.Models
       }
     }
     
+    public void Save()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+
+      cmd.CommandText = @"INSERT INTO phylums (name, description, origin, zone) VALUES (@phylumName, @phylumDescription, @phylumOrigin, @phylumZone);";
+      MySqlParameter name = new MySqlParameter();
+      MySqlParameter description = new MySqlParameter();
+      MySqlParameter origin = new MySqlParameter();
+      MySqlParameter zone = new MySqlParameter();
+      name.ParameterName =" @phylumName";
+      description.ParameterName = "@phylumDescription";
+      origin.ParameterName = "@phylumOrigin";
+      zone.ParameterName = "@phylumZone";
+      name.Value = this.Name;
+      description.Value = this.Description;
+      origin.Value = this.Origin;
+      zone.Value = this.Zone;
+      cmd.Parameters.Add(name);
+      cmd.Parameters.Add(description);
+      cmd.Parameters.Add(origin);
+      cmd.Parameters.Add(zone);
+      cmd.ExecuteNonQuery();
+      Id = (int) cmd.LastInsertedId;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
   }
 }
