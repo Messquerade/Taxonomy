@@ -1,12 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProjectName.Models;
+using Taxonomy.Models;
 using System.Collections.Generic;
 using System;
 
-namespace ProjectName.Tests
+namespace Taxonomy.Tests
 {
   [TestClass]
-  public class ParentClassTests
+  public class ClassTests
   {
     
   }

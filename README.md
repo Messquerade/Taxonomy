@@ -1,8 +1,8 @@
-# (Application Name)
+# Your Animal Kingdom
 
-#### (Brief Description of Application)
+#### Create your own unique animal kingdom!
 
-#### By Anna Clarke
+#### By Anna Clarke, Art Weinstein, Nick Hennessy
 
 ## Technologies Used
 
@@ -12,6 +12,8 @@
 * _here_
 
 ## Description
+
+Starting with an animal kingdom category, create your own unique phylums, 
 
 ## Setup/Installation Requirements
 
@@ -29,3 +31,7 @@
 ## License
 
 ## Contact Information
+
+Anna Clarke: anclarkie@gmail.com
+Art Weinstein: artur.weinstein@gmail.com
+Nick Hennessy: njhnny@gmail.com

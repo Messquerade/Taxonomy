@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ProjectName
+namespace Taxonomy
 {
   public class Startup
   {
@@ -40,5 +40,10 @@ namespace ProjectName
         await context.Response.WriteAsync("Hello World!");
       });
     }
+  }
+
+  public static class DBConfiguration
+  {
+    public static string ConnectionString = "server=localhost;user id=root;password=sami;port=3306;database=to_do_list;";
   }
 }
