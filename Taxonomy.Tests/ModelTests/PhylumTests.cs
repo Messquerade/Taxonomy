@@ -10,14 +10,22 @@ namespace Taxonomy.Tests
   {
     public void Dispose()
     {
-      Category.ClearAll();
+      Phylum.ClearAll();
     }
 
     [TestMethod]
     public void PhylumConstructor_CreatesInstanceOf_Phylum()
     {
-      Phylum newPhylum = new Phylum ();
-  
+      Phylum newPhylum = new Phylum("test name", "test description", "test origin", "test zone");
+      Assert.AreEqual(typeof(Phylum), newPhylum.GetType());
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsEmptyListFromDatabase_List()
+    {
+      List<Phylum> newList = new List<Phylum> {};
+      List<Phylum> result = Phylum.GetAll();
+      CollectionAssert.AreEqual(newList, result);
     }
   }
 }
